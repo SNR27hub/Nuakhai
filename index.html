@@ -1,0 +1,517 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="or">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ନୂଆଁଖାଇ ଜୁହାର 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans Oriya', sans-serif;
+            background: url('https://i.postimg.cc/N0gyPLS7/Picsart-25-08-21-00-34-03-234.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fallback Sambalpuri pattern */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #800000, #800000 20px,
+                #ffffff 20px, #ffffff 40px,
+                #000000 40px, #000000 60px,
+                #ff0000 60px, #ff0000 80px
+            );
+            opacity: 0.2;
+            z-index: -1;
+            animation: bgShift 10s infinite linear;
+        }
+
+        /* Background Shift Animation */
+        @keyframes bgShift {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Header Section */
+        header {
+            padding: 15px;
+            background: #4b0000;
+            font-size: 1.4em;
+            font-weight: 700;
+            border-bottom: 4px double #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: headerGlow 3s infinite ease-in-out;
+        }
+
+        @keyframes headerGlow {
+            0% { box-shadow: 0 0 0 #ffcc00; }
+            50% { box-shadow: 0 0 20px #ffcc00; }
+            100% { box-shadow: 0 0 0 #ffcc00; }
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .profile:hover {
+            transform: scale(1.1);
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 8px;
+            border: 2px solid white;
+        }
+
+        .profile span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        /* Greeting Section */
+        .greeting-container {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            margin: 30px auto;
+            animation: slideUp 1.5s ease-out, pulse 2s infinite, dance 2s infinite ease-in-out;
+        }
+
+        @keyframes dance {
+            0% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-5px) rotate(-2deg); }
+            50% { transform: translateX(5px) rotate(2deg); }
+            75% { transform: translateX(-5px) rotate(-2deg); }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+
+        .greeting-message {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffcc00;
+            text-shadow: 2px 2px #000;
+            white-space: pre-line;
+            animation: textBlink 2s infinite;
+        }
+
+        @keyframes textBlink {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        /* Input Section */
+        .input-section {
+            margin-top: 15px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            border: 2px solid #ffcc00;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.8);
+            color: black;
+            width: 80%;
+            max-width: 250px;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            box-shadow: 0 0 12px #ffcc00;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            font-size: 0.9em;
+            background: #ffcc00;
+            color: #000;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: buttonDance 1.5s infinite ease-in-out;
+        }
+
+        @keyframes buttonDance {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        /* Share Buttons */
+        .share {
+            margin-top: 15px;
+            display: none;
+        }
+
+        .share a {
+            margin: 0 5px;
+            text-decoration: none;
+            font-size: 1em;
+            color: #000;
+            background: #ffcc00;
+            padding: 6px 12px;
+            border-radius: 5px;
+            display: inline-block;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            animation: shareFade 1s infinite alternate;
+        }
+
+        @keyframes shareFade {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .share a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Emojis with Animation */
+        .emojis {
+            font-size: 36px;
+            margin-top: 15px;
+            animation: bounce 1s infinite alternate, growCrop 3s infinite ease-in-out;
+        }
+
+        @keyframes growCrop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* Falling Flowers Animation */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .flower {
+            position: absolute;
+            font-size: 20px;
+            color: #ff69b4;
+            animation: fall 5s infinite linear;
+        }
+
+        @keyframes fall {
+            0% { opacity: 0; transform: translateY(-20px) rotate(0deg); }
+            20% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(100vh) rotate(360deg); }
+        }
+
+        /* Slideshow Section */
+        .slideshow-container {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            overflow: hidden;
+            border: 2px solid #ffcc00;
+            border-radius: 8px;
+            animation: borderPulse 3s infinite;
+        }
+
+        @keyframes borderPulse {
+            0% { border-color: #ffcc00; }
+            50% { border-color: #ff9900; }
+            100% { border-color: #ffcc00; }
+        }
+
+        .slideshow {
+            display: flex;
+            flex-direction: column; /* Stack images vertically */
+            height: 1000px; /* Increased height for longer display */
+            animation: slideVertical 25s infinite linear;
+        }
+
+        .slide {
+            width: 100%;
+            height: 200px; /* Fixed height for each slide */
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+            transition: transform 0.5s ease;
+        }
+
+        .slide img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Vertical Slide Animation */
+        @keyframes slideVertical {
+            0% { transform: translateY(0); }
+            20% { transform: translateY(0); }
+            25% { transform: translateY(-200px); }
+            45% { transform: translateY(-200px); }
+            50% { transform: translateY(-400px); }
+            70% { transform: translateY(-400px); }
+            75% { transform: translateY(-600px); }
+            95% { transform: translateY(-600px); }
+            100% { transform: translateY(-800px); }
+        }
+
+        /* Existing Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+
+        /* Enhanced Ripple Effect */
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: rippleEffect 0.8s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes rippleEffect {
+            to {
+                transform: scale(6);
+                opacity: 0;
+            }
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.2em;
+                padding: 10px;
+            }
+            .profile img {
+                width: 30px;
+                height: 30px;
+            }
+            .profile span {
+                font-size: 18px;
+            }
+            .greeting-container {
+                margin-top: 20px;
+                padding: 10px;
+                width: 95%;
+            }
+            .greeting-message {
+                font-size: 24px;
+            }
+            input[type="text"] {
+                font-size: 14px;
+                max-width: 200px;
+            }
+            button {
+                font-size: 0.8em;
+                padding: 6px 12px;
+            }
+            .slideshow-container {
+                max-width: 300px;
+                height: 800px; /* Adjusted for smaller screens */
+            }
+            .emojis {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 1em;
+            }
+            .profile img {
+                width: 25px;
+                height: 25px;
+            }
+            .profile span {
+                font-size: 16px;
+            }
+            .greeting-container {
+                margin-top: 15px;
+                padding: 8px;
+            }
+            .greeting-message {
+                font-size: 20px;
+            }
+            input[type="text"] {
+                font-size: 12px;
+                max-width: 150px;
+            }
+            button {
+                font-size: 0.7em;
+                padding: 5px 10px;
+            }
+            .slideshow-container {
+                max-width: 250px;
+                height: 600px; /* Adjusted for smaller screens */
+            }
+            .emojis {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- JavaScript to create falling flowers with variety -->
+    <script>
+        function createFlowers() {
+            const flowers = ['🌸', '🌷', '💐'];
+            for (let i = 0; i < 25; i++) { // Increased to 25 for more flowers
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.animationDuration = Math.random() * 3 + 4 + 's';
+                flower.style.animationDelay = Math.random() * 3 + 's';
+                flower.style.fontSize = Math.random() * 20 + 15 + 'px'; // Random size between 15-35px
+                document.body.appendChild(flower);
+
+                // Remove flower after animation
+                flower.addEventListener('animationend', () => flower.remove());
+            }
+        }
+
+        // Create flowers initially and repeat every 4 seconds
+        createFlowers();
+        setInterval(createFlowers, 4000);
+
+        function generateGreeting() {
+            const name = document.getElementById("senderName").value.trim();
+            if (name === "") {
+                alert("ଦୟାକରି ନାଁ ଲେଖ!");
+                return;
+            }
+            const greetingText = `ମୁଁଇ ${name}\nମୋର୍ ତରଫ୍ ରୁ ଆପଣଙ୍କୁ ନୂଆଁଖାଇ ଜୁହାର 🙏`;
+            document.getElementById("greetingMessage").textContent = greetingText;
+            document.getElementById("greetingMessage").style.display = "block";
+            document.getElementById("share").style.display = "block";
+
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(greetingText);
+
+            document.getElementById("whatsapp").href = `https://wa.me/?text=${text}`;
+            document.getElementById("facebook").href = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`;
+            document.getElementById("instagram").href = `https://www.instagram.com/?url=${url}`;
+        }
+
+        // Enhanced Touch Ripple Effect
+        document.body.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            ripple.style.left = `${e.clientX}px`;
+            ripple.style.top = `${e.clientY}px`;
+            document.body.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 800);
+        });
+    </script>
+
+    <header>
+        <div class="profile" onclick="window.open('https://www.instagram.com/developer_snr/', '_blank');">
+            <img src="https://i.postimg.cc/sX57tbK5/developer-s-photo.jpg" alt="Developer SNR Profile">
+            <span>Developer SNR</span>
+        </div>
+    </header>
+
+    <div class="greeting-container">
+        <p>ଆପଣଙ୍କର ନାଁ ଲେଖ ଓ ନୂଆଁଖାଇ ବନ 🎉</p>
+        <div class="input-section">
+            <input type="text" id="senderName" placeholder="">
+            <button onclick="generateGreeting()">🎊 ବନ 🎊</button>
+        </div>
+        <div class="greeting-message" id="greetingMessage"></div>
+        <div class="emojis">🌾🥁🎉</div>
+        <div class="share" id="share">
+            <p>ସେୟାର କରନ୍ତୁ:</p>
+            <a id="whatsapp" target="_blank">WhatsApp</a>
+            <a id="facebook" target="_blank">Facebook</a>
+            <a id="instagram" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <!-- Moved Slideshow Below Greeting Container -->
+    <div class="slideshow-container">
+        <div class="slideshow">
+            <div class="slide">
+                <img src="https://i.postimg.cc/GhftxqxR/nuakhai-1.gif" alt="Nuakhai GIF">
+            </div>
+            <div class="slide">
+                <img src="https://i.postimg.cc/JhL1pgyf/78f4acd6529f22cabfb39d96c9bd7804.jpg" alt="Nuakhai Photo 1">
+            </div>
+            <div class="slide">
+                <img src="https://i.postimg.cc/HxWTgy93/c161335816e08646e126cb3f83ae2d88.jpg" alt="Nuakhai Photo 2">
+            </div>
+            <div class="slide">
+                <img src="https://i.postimg.cc/rwC6wpmH/Picsart-25-08-21-01-00-51-891.jpg" alt="Nuakhai Photo 3">
+            </div>
+            <div class="slide">
+                <img src="https://i.postimg.cc/hGZKKGZB/a9ec4b1e34d0b8d56ec7c494724711aa.jpg" alt="Nuakhai Photo 4">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
