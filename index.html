@@ -1,4 +1,4 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="or">
 <head>
     <meta charset="UTF-8">
@@ -190,16 +190,21 @@
         .share a {
             margin: 0 5px;
             text-decoration: none;
-            font-size: 1em;
+            font-size: 1.5em; /* Increased size for icons */
             color: #000;
             background: #ffcc00;
-            padding: 6px 12px;
+            padding: 8px 12px;
             border-radius: 5px;
             display: inline-block;
             font-weight: 600;
             transition: transform 0.3s ease;
             animation: shareFade 1s infinite alternate;
         }
+
+        /* Icon Styling (Using Unicode as placeholders; replace with actual SVGs if needed) */
+        #whatsapp::before { content: "📱"; } /* WhatsApp icon placeholder */
+        #facebook::before { content: "👍"; } /* Facebook icon placeholder */
+        #instagram::before { content: "📸"; } /* Instagram icon placeholder */
 
         @keyframes shareFade {
             0% { opacity: 0.7; }
@@ -268,14 +273,14 @@
 
         .slideshow {
             display: flex;
-            flex-direction: column; /* Stack images vertically */
-            height: 1000px; /* Increased height for longer display */
+            flex-direction: column;
+            height: 1000px;
             animation: slideVertical 25s infinite linear;
         }
 
         .slide {
             width: 100%;
-            height: 200px; /* Fixed height for each slide */
+            height: 200px;
         }
 
         .slide img {
@@ -373,10 +378,13 @@
             }
             .slideshow-container {
                 max-width: 300px;
-                height: 800px; /* Adjusted for smaller screens */
+                height: 800px;
             }
             .emojis {
                 font-size: 30px;
+            }
+            .share a {
+                font-size: 1.2em;
             }
         }
 
@@ -408,10 +416,13 @@
             }
             .slideshow-container {
                 max-width: 250px;
-                height: 600px; /* Adjusted for smaller screens */
+                height: 600px;
             }
             .emojis {
                 font-size: 24px;
+            }
+            .share a {
+                font-size: 1em;
             }
         }
     </style>
@@ -421,14 +432,14 @@
     <script>
         function createFlowers() {
             const flowers = ['🌸', '🌷', '💐'];
-            for (let i = 0; i < 25; i++) { // Increased to 25 for more flowers
+            for (let i = 0; i < 25; i++) {
                 const flower = document.createElement('div');
                 flower.className = 'flower';
                 flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
                 flower.style.left = Math.random() * 100 + 'vw';
                 flower.style.animationDuration = Math.random() * 3 + 4 + 's';
                 flower.style.animationDelay = Math.random() * 3 + 's';
-                flower.style.fontSize = Math.random() * 20 + 15 + 'px'; // Random size between 15-35px
+                flower.style.fontSize = Math.random() * 20 + 15 + 'px';
                 document.body.appendChild(flower);
 
                 // Remove flower after animation
@@ -446,7 +457,7 @@
                 alert("ଦୟାକରି ନାଁ ଲେଖ!");
                 return;
             }
-            const greetingText = `ମୁଁଇ ${name}\nମୋର୍ ତରଫ୍ ରୁ ଆପଣଙ୍କୁ ନୂଆଁଖାଇ ଜୁହାର 🙏`;
+            const greetingText = `ନୂଆଁଖାଇ ଜୁହାର 🙏\nଇ ଲିଙ୍କ୍ କ୍ଲିକ୍ କରି ତୁମର୍ ନାଁ ଲେଖ\nhttps://snr27hub.github.io/Nuakhai/?name=${encodeURIComponent(name)}`;
             document.getElementById("greetingMessage").textContent = greetingText;
             document.getElementById("greetingMessage").style.display = "block";
             document.getElementById("share").style.display = "block";
@@ -458,6 +469,16 @@
             document.getElementById("facebook").href = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`;
             document.getElementById("instagram").href = `https://www.instagram.com/?url=${url}`;
         }
+
+        // Redirect to WhatsApp on "ବନ" button click
+        document.querySelector('button[onclick="generateGreeting()"]').addEventListener('click', function() {
+            window.location.href = 'https://wa.me/?text=ନୂଆଁଖାଇ ଜୁହାର 🙏';
+        });
+
+        // Redirect to Instagram on Developer SNR click
+        document.querySelector('.profile').addEventListener('click', function() {
+            window.location.href = 'https://www.instagram.com/snr__27?igsh=MXI4YXd5NnIxMDAzcw==';
+        });
 
         // Enhanced Touch Ripple Effect
         document.body.addEventListener('click', function(e) {
@@ -471,7 +492,7 @@
     </script>
 
     <header>
-        <div class="profile" onclick="window.open('https://www.instagram.com/developer_snr/', '_blank');">
+        <div class="profile" onclick="window.open('https://www.instagram.com/snr__27?igsh=MXI4YXd5NnIxMDAzcw==', '_blank');">
             <img src="https://i.postimg.cc/sX57tbK5/developer-s-photo.jpg" alt="Developer SNR Profile">
             <span>Developer SNR</span>
         </div>
