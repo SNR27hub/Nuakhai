@@ -8,50 +8,26 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
-            font-family: 'Noto Sans Oriya', sans-serif;
+            min-height: 100vh;
             background: url('https://i.postimg.cc/N0gyPLS7/Picsart-25-08-21-00-34-03-234.jpg') no-repeat center center fixed;
             background-size: cover;
-            color: white;
-            text-align: center;
-            overflow-x: hidden;
-            position: relative;
-        }
 
-        /* Fallback Sambalpuri pattern */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                #800000, #800000 20px,
-                #ffffff 20px, #ffffff 40px,
-                #000000 40px, #000000 60px,
-                #ff0000 60px, #ff0000 80px
-            );
-            opacity: 0.2;
-            z-index: -1;
-            animation: bgShift 10s infinite linear;
-        }
-
-        /* Background Shift Animation */
-        @keyframes bgShift {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-            100% { transform: translateX(0); }
+            /* Border settings */
+            border-style: solid;
+            border-width: 8px; /* 👉 Border kitna patla ya mota chahiye */
+            border-image-source: url("https://i.postimg.cc/X7d5QShk/Picsart-25-08-21-09-35-44-222.jpg");
+            border-image-slice: 30;   /* 👉 photo ke edge ko kaise slice karna hai (20–60 best) */
+            border-image-repeat: round; /* repeat = lagatar chalega */
+            border-image-width: 1;
+            border-color: transparent;  /* fallback */
         }
 
         /* Header Section */
         header {
             padding: 15px;
-            background: #4b0000;
+            background: linear-gradient(90deg, #ff6f61, #6b48ff);
             font-size: 1.4em;
             font-weight: 700;
-            border-bottom: 4px double #fff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -59,9 +35,9 @@
         }
 
         @keyframes headerGlow {
-            0% { box-shadow: 0 0 0 #ffcc00; }
-            50% { box-shadow: 0 0 20px #ffcc00; }
-            100% { box-shadow: 0 0 0 #ffcc00; }
+            0% { box-shadow: 0 0 0 #ffd700; }
+            50% { box-shadow: 0 0 20px #ffd700; }
+            100% { box-shadow: 0 0 0 #ffd700; }
         }
 
         .profile {
@@ -80,25 +56,30 @@
             height: 40px;
             border-radius: 50%;
             margin-right: 8px;
-            border: 2px solid white;
+            border: 2px solid #ffd700;
         }
 
         .profile span {
             font-size: 20px;
             font-weight: bold;
             color: #ffcc00;
+            text-shadow: 1px 1px #6b48ff;
         }
 
         /* Greeting Section */
         .greeting-container {
             margin-top: 30px;
             padding: 15px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(255, 111, 97, 0.8);
             border-radius: 10px;
             width: 90%;
             max-width: 600px;
             margin: 30px auto;
             animation: slideUp 1.5s ease-out, pulse 2s infinite, dance 2s infinite ease-in-out;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         @keyframes dance {
@@ -109,13 +90,37 @@
             100% { transform: translateX(0) rotate(0deg); }
         }
 
+        .greeting-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         .greeting-message {
             font-size: 28px;
             font-weight: 700;
-            color: #ffcc00;
-            text-shadow: 2px 2px #000;
+            color: #ffd700;
+            text-shadow: 2px 2px #6b48ff;
             white-space: pre-line;
-            animation: textBlink 2s infinite;
+            margin: 5px;
+        }
+
+        .greeting-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffd700;
+            text-shadow: 2px 2px #6b48ff;
+            margin: 5px;
+        }
+
+        /* Namaste GIF Styling */
+        .namaste-gif {
+            width: 120px; /* Suitable size to fit with text, adjustable */
+            height: auto;
+            vertical-align: middle;
+            margin: 0 10px;
         }
 
         @keyframes textBlink {
@@ -133,10 +138,10 @@
         input[type="text"] {
             padding: 8px;
             font-size: 16px;
-            border: 2px solid #ffcc00;
+            border: 2px solid #ffd700;
             border-radius: 6px;
-            background: rgba(255, 255, 255, 0.8);
-            color: black;
+            background: rgba(255, 255, 255, 0.9);
+            color: #ff6f61;
             width: 80%;
             max-width: 250px;
             text-align: center;
@@ -144,7 +149,7 @@
         }
 
         input[type="text"]:focus {
-            box-shadow: 0 0 12px #ffcc00;
+            box-shadow: 0 0 12px #6b48ff;
             animation: shake 0.5s;
         }
 
@@ -160,8 +165,8 @@
             margin-top: 10px;
             padding: 8px 15px;
             font-size: 0.9em;
-            background: #ffcc00;
-            color: #000;
+            background: linear-gradient(45deg, #ff6f61, #ffd700);
+            color: #ffffff;
             font-weight: 600;
             border: none;
             border-radius: 6px;
@@ -190,9 +195,9 @@
         .share a {
             margin: 0 5px;
             text-decoration: none;
-            font-size: 1.5em; /* Increased size for icons */
-            color: #000;
-            background: #ffcc00;
+            font-size: 1.5em;
+            color: #ffffff;
+            background: linear-gradient(45deg, #6b48ff, #ff6f61);
             padding: 8px 12px;
             border-radius: 5px;
             display: inline-block;
@@ -201,10 +206,10 @@
             animation: shareFade 1s infinite alternate;
         }
 
-        /* Icon Styling (Using Unicode as placeholders; replace with actual SVGs if needed) */
-        #whatsapp::before { content: "📱"; } /* WhatsApp icon placeholder */
-        #facebook::before { content: "👍"; } /* Facebook icon placeholder */
-        #instagram::before { content: "📸"; } /* Instagram icon placeholder */
+        /* Icon Styling (Using Unicode as placeholders) */
+        #whatsapp::before { content: "📱"; }
+        #facebook::before { content: "👍"; }
+        #instagram::before { content: "📸"; }
 
         @keyframes shareFade {
             0% { opacity: 0.7; }
@@ -220,6 +225,7 @@
             font-size: 36px;
             margin-top: 15px;
             animation: bounce 1s infinite alternate, growCrop 3s infinite ease-in-out;
+            color: #ffd700;
         }
 
         @keyframes growCrop {
@@ -243,7 +249,7 @@
         .flower {
             position: absolute;
             font-size: 20px;
-            color: #ff69b4;
+            color: #ffd700;
             animation: fall 5s infinite linear;
         }
 
@@ -260,33 +266,33 @@
             max-width: 600px;
             margin: 20px auto;
             overflow: hidden;
-            border: 2px solid #ffcc00;
-            border-radius: 8px;
+            border-radius: 10px;
+            background: rgba(107, 72, 255, 0.2);
             animation: borderPulse 3s infinite;
         }
 
         @keyframes borderPulse {
-            0% { border-color: #ffcc00; }
-            50% { border-color: #ff9900; }
-            100% { border-color: #ffcc00; }
+            0% { border-color: #ffd700; }
+            50% { border-color: #ff6f61; }
+            100% { border-color: #ffd700; }
         }
 
         .slideshow {
             display: flex;
             flex-direction: column;
-            height: 1000px;
-            animation: slideVertical 25s infinite linear;
+            height: 1000px; /* Total height based on 4 slides */
+            animation: slideVertical 12s infinite linear; /* Adjusted duration for 4 slides */
         }
 
         .slide {
             width: 100%;
-            height: 200px;
+            height: 250px; /* Consistent height for each slide */
         }
 
         .slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Changed to contain to avoid cropping */
             border-radius: 6px;
             transition: transform 0.5s ease;
         }
@@ -298,14 +304,10 @@
         /* Vertical Slide Animation */
         @keyframes slideVertical {
             0% { transform: translateY(0); }
-            20% { transform: translateY(0); }
-            25% { transform: translateY(-200px); }
-            45% { transform: translateY(-200px); }
-            50% { transform: translateY(-400px); }
-            70% { transform: translateY(-400px); }
-            75% { transform: translateY(-600px); }
-            95% { transform: translateY(-600px); }
-            100% { transform: translateY(-800px); }
+            25% { transform: translateY(-250px); }
+            50% { transform: translateY(-500px); }
+            75% { transform: translateY(-750px); }
+            100% { transform: translateY(0); }
         }
 
         /* Existing Keyframes */
@@ -333,7 +335,7 @@
         /* Enhanced Ripple Effect */
         .ripple {
             position: absolute;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 215, 0, 0.5);
             border-radius: 50%;
             transform: scale(0);
             animation: rippleEffect 0.8s ease-out;
@@ -365,8 +367,11 @@
                 padding: 10px;
                 width: 95%;
             }
-            .greeting-message {
+            .greeting-message, .greeting-title {
                 font-size: 24px;
+            }
+            .namaste-gif {
+                width: 100px; /* Adjusted for smaller screens */
             }
             input[type="text"] {
                 font-size: 14px;
@@ -378,7 +383,17 @@
             }
             .slideshow-container {
                 max-width: 300px;
-                height: 800px;
+                height: 750px; /* Adjusted for responsiveness */
+            }
+            .slide {
+                height: 187.5px; /* Adjusted proportionally */
+            }
+            @keyframes slideVertical {
+                0% { transform: translateY(0); }
+                25% { transform: translateY(-187.5px); }
+                50% { transform: translateY(-375px); }
+                75% { transform: translateY(-562.5px); }
+                100% { transform: translateY(0); }
             }
             .emojis {
                 font-size: 30px;
@@ -403,8 +418,11 @@
                 margin-top: 15px;
                 padding: 8px;
             }
-            .greeting-message {
+            .greeting-message, .greeting-title {
                 font-size: 20px;
+            }
+            .namaste-gif {
+                width: 80px; /* Adjusted for smaller screens */
             }
             input[type="text"] {
                 font-size: 12px;
@@ -416,7 +434,17 @@
             }
             .slideshow-container {
                 max-width: 250px;
-                height: 600px;
+                height: 625px; /* Adjusted for responsiveness */
+            }
+            .slide {
+                height: 156.25px; /* Adjusted proportionally */
+            }
+            @keyframes slideVertical {
+                0% { transform: translateY(0); }
+                25% { transform: translateY(-156.25px); }
+                50% { transform: translateY(-312.5px); }
+                75% { transform: translateY(-468.75px); }
+                100% { transform: translateY(0); }
             }
             .emojis {
                 font-size: 24px;
@@ -451,28 +479,47 @@
         createFlowers();
         setInterval(createFlowers, 4000);
 
+        // Function to get URL parameters
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Initialize page with sender's name from URL
+        window.onload = function() {
+            const originalSender = getParameterByName('name') || 'SNR'; // Default to SNR if no name
+            document.getElementById("greetingMessage").textContent = `ମୁଁଇ ${originalSender}\nମୋର୍ ତରଫ୍ ରୁ ଆପଣଙ୍କୁ ନୂଆଁଖାଇ ଜୁହାର`;
+            document.getElementById("greetingMessage").style.display = "block";
+        };
+
         function generateGreeting() {
-            const name = document.getElementById("senderName").value.trim();
-            if (name === "") {
+            const originalSender = getParameterByName('name') || '';
+            const newSender = document.getElementById("senderName").value.trim();
+            if (!newSender) {
                 alert("ଦୟାକରି ନାଁ ଲେଖ!");
                 return;
             }
-            const greetingText = `ନୂଆଁଖାଇ ଜୁହାର 🙏\nଇ ଲିଙ୍କ୍ କ୍ଲିକ୍ କରି ତୁମର୍ ନାଁ ଲେଖ\nhttps://snr27hub.github.io/Nuakhai/?name=${encodeURIComponent(name)}`;
+
+            // Display greeting with new sender
+            const greetingText = `ମୁଁଇ ${newSender}\nମୋର୍ ତରଫ୍ ରୁ ଆପଣଙ୍କୁ ନୂଆଁଖାଇ ଜୁହାର`;
             document.getElementById("greetingMessage").textContent = greetingText;
             document.getElementById("greetingMessage").style.display = "block";
             document.getElementById("share").style.display = "block";
 
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent(greetingText);
-
-            document.getElementById("whatsapp").href = `https://wa.me/?text=${text}`;
-            document.getElementById("facebook").href = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`;
-            document.getElementById("instagram").href = `https://www.instagram.com/?url=${url}`;
+            // Generate new link with new sender
+            const newLink = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(newSender)}`;
+            const whatsappText = encodeURIComponent(`${greetingText}\nଇ ଲିଙ୍କ୍ କ୍ଲିକ୍ କରି ତୁମର୍ ନାଁ ଲେଖ\n${newLink}`);
+            document.getElementById("whatsapp").href = `https://wa.me/?text=${whatsappText}`;
         }
 
         // Redirect to WhatsApp on "ବନ" button click
         document.querySelector('button[onclick="generateGreeting()"]').addEventListener('click', function() {
-            window.location.href = 'https://wa.me/?text=ନୂଆଁଖାଇ ଜୁହାର 🙏';
+            window.location.href = 'https://wa.me/?text=🙏';
         });
 
         // Redirect to Instagram on Developer SNR click
@@ -499,15 +546,22 @@
     </header>
 
     <div class="greeting-container">
-        <p>ଆପଣଙ୍କର ନାଁ ଲେଖ ଓ ନୂଆଁଖାଇ ବନ 🎉</p>
+        <div class="greeting-header">
+            <img src="https://i.postimg.cc/hGcPgN2g/preity-zinta-bollywood.gif" alt="Namaste GIF" class="namaste-gif">
+        </div>
+        <div class="greeting-header">
+            <p class="greeting-message" id="greetingMessage"></p>
+        </div>
+        <div class="greeting-header">
+            <p class="greeting-title">ନୂଆଁଖାଇ ଜୁହାର</p>
+        </div>
         <div class="input-section">
-            <input type="text" id="senderName" placeholder="">
+            <input type="text" id="senderName" placeholder="ନାଁ ଲେ�kh" style="color: #ff6f61;">
             <button onclick="generateGreeting()">🎊 ବନ 🎊</button>
         </div>
-        <div class="greeting-message" id="greetingMessage"></div>
         <div class="emojis">🌾🥁🎉</div>
         <div class="share" id="share">
-            <p>ସେୟାର କରନ୍ତୁ:</p>
+            <p style="color: #ffd700;">ସେୟାର କରନ୍ତୁ:</p>
             <a id="whatsapp" target="_blank">WhatsApp</a>
             <a id="facebook" target="_blank">Facebook</a>
             <a id="instagram" target="_blank">Instagram</a>
@@ -519,9 +573,6 @@
         <div class="slideshow">
             <div class="slide">
                 <img src="https://i.postimg.cc/GhftxqxR/nuakhai-1.gif" alt="Nuakhai GIF">
-            </div>
-            <div class="slide">
-                <img src="https://i.postimg.cc/JhL1pgyf/78f4acd6529f22cabfb39d96c9bd7804.jpg" alt="Nuakhai Photo 1">
             </div>
             <div class="slide">
                 <img src="https://i.postimg.cc/HxWTgy93/c161335816e08646e126cb3f83ae2d88.jpg" alt="Nuakhai Photo 2">
